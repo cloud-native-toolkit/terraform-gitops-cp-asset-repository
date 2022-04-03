@@ -1,0 +1,14 @@
+ibmassetrepoinstance:
+  assetrepo:
+    name: assetrepo
+    spec:
+      license:
+        accept: true
+        license: L-PNAA-C68928
+      version: "2021.4.1"
+      storage:
+        assetDataVolume:
+          class: "ibmc-file-gold-gid"
+        couchVolume:
+          class: "ibmc-block-gold"
+      replicas: 2   

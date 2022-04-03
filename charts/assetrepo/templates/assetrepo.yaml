@@ -1,0 +1,15 @@
+apiVersion: integration.ibm.com/v1beta1
+kind: AssetRepository
+metadata:
+  name: {{ .Values.ibmassetrepoinstance.assetrepo.name }}
+spec:
+  license:
+    accept: true
+    license: {{ .Values.ibmassetrepoinstance.assetrepo.spec.license.license }}
+  replicas: {{ .Values.ibmassetrepoinstance.assetrepo.spec.replicas }}
+  storage:
+    assetDataVolume:
+      class: {{ .Values.ibmassetrepoinstance.assetrepo.spec.storage.assetDataVolume.class }}
+    couchVolume:
+      class: {{ .Values.ibmassetrepoinstance.assetrepo.spec.storage.couchVolume.class }}
+  version: {{ .Values.ibmassetrepoinstance.assetrepo.spec.version }}

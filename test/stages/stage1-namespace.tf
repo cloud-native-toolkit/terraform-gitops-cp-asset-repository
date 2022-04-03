@@ -3,11 +3,12 @@ module "gitops_namespace" {
 
   gitops_config = module.gitops.gitops_config
   git_credentials = module.gitops.git_credentials
-  name = var.namespace
+  #name = var.namespace
+  name = var.platform-navigator-namespace
 }
 
 resource null_resource write_namespace {
   provisioner "local-exec" {
-    command = "echo -n '${module.gitops_namespace.name}' > .namespace"
+    command = "echo -n '${var.platform-navigator-namespace}' > .namespace"
   }
 }
