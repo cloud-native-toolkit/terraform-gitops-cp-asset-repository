@@ -73,5 +73,74 @@ variable "kubeseal_namespace" {
   default = "sealed-secrets"
 }
 
-variable "cp_entitlement_key" {
+
+variable "subscription_namespace" {
+  type        = string
+  description = "The namespace where the application should be deployed"
+  default     = "openshift-operators"
 }
+
+variable "cp_entitlement_key" {
+  type        = string
+  description = "The entitlement key required to access Cloud Pak images"
+  sensitive   = true
+}
+
+variable "channel" {
+  type        = string
+  description = "The channel from which the AssetRepository should be installed"
+  default     = "v1.4"
+}
+
+variable "catalog" {
+  type        = string
+  description = "The catalog source that should be used to deploy the operator"
+  default     = "ibm-operator-catalog"
+}
+
+variable "catalog_namespace" {
+  type        = string
+  description = "The namespace where the catalog has been deployed"
+  default     = "openshift-marketplace"
+}
+
+variable "license" {
+  type        = string
+  description = "The license string that should be used for the instance"
+  default     = "L-PNAA-C68928"
+}
+
+variable "instance_version" {
+  type        = string
+  description = "The version of the Asset Repository should be installed"
+  default     = ""
+}
+
+variable "replica_count" {
+  type        = number
+  description = "The number of replicas to create for the asset repository"
+  default     = 1
+}
+
+variable "filestorageclass" {
+  type = string
+  description = "For assetDataVolume we need RWX volume."
+  #for VPC based cluster configured with PortWorx
+  default="portworx-rwx-gp-sc"
+  
+}
+
+variable "blockstorageclass" {
+  type = string
+  description = "For assetDataVolume we need RWO volume."
+  #for VPC based cluster configured with PortWorx
+  default="portworx-db2-rwo-sc"
+  
+}
+variable "platform-navigator-namespace" {
+  type = string
+  description = "The namespace where Platform Navigator is deployed"
+  default="gitops-cp-platformnavigator"
+  
+}
+
